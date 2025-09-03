@@ -1,6 +1,6 @@
 package market;
 
-public class Product {
+public class Product implements Purchasable{
 
 	public String name;
 	public String brand;
@@ -80,5 +80,83 @@ public class Product {
 		System.out.println("Обьект Product удален");
 		super.finalize();
 	}
+	
+	public void buy(String name, User user)
+	
+	{
+		try 
+		
+		{
+			if(name.equals(this.name) && user.checkMoney() >= this.price)
+				
+			{
+				System.out.println("you bought" + this.name + " for: " + this.price + "$");
+				
+				user.withdraw(this.price);
+			}
+			
+			
+		} 
+		
+		catch(Exception e)
+		{
+			System.out.println("error: " + e);
+		}
+
+		
+	}
+	
+	
+	
+	public void buy(User user)
+	
+	{
+		try 
+		
+		{
+			if(user.checkMoney() >= this.price)
+				
+			{
+				System.out.println("you have bought" + this.name + " for: " + this.price + "$");
+				
+				user.withdraw(this.price);
+			}
+			
+			
+		} 
+		
+		catch(Exception e)
+		{
+			System.out.println("error: " + e);
+		}
+
+		
+	}
+	
+	
+	
+	public void refund(String name, User user)
+	
+	{
+		
+		try
+		
+		{
+			if(name.equals(this.name) && this.price > 100)
+			{
+				System.out.println("you have returned" + this.name + ", you will get back" + (this.price / 100 * 90) + "$" );
+				double sumToReturn = this.price / 100 * 90;
+				user.addMoney(sumToReturn);
+			}
+		}
+		
+		catch(Exception e)
+		
+		{
+			System.out.println("error: " + e);
+		}
+		
+	}
+	
 	
 }

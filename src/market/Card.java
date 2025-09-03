@@ -92,6 +92,13 @@ public class Card {
 		
 	}
 	
+	public ArrayList<Product> getProducts()
+	{
+		
+		return products;
+		
+	}
+	
 	
 	public void showProducts()
 	

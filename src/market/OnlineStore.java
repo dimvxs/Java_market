@@ -56,12 +56,35 @@ public class OnlineStore {
 	}
 	
 	
-public static void removeProduct()
+   public static void removeProduct()
 	
 	{
 		
 		productsCount--;
 		
 	}
-	
+   
+   
+   public void purchaseAll(User user)
+   {
+	   
+	  ArrayList<Card> cards = user.getCards();
+	  
+	  for(Card card: cards)
+		  
+	  {
+		  
+	        ArrayList<Product> products = card.getProducts();
+	        
+	        for(Product product : products)
+	        	
+	        {
+	        	product.buy(product.name, user);
+	        }
+		  
+	  }
+   }
+	   
+
+
 }
