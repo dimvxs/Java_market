@@ -11,7 +11,7 @@ public abstract class DigitalProduct extends Product{
 		category = new String("null");
 		id = 0;
 	}
-	
+
 	
 	public DigitalProduct(String category, int id)
 	{
@@ -27,6 +27,36 @@ public abstract class DigitalProduct extends Product{
 			{
 				this.id = id;
 			}
+			
+		} 
+		
+		catch(Exception e)
+		{
+			System.out.println("error: " + e);
+		}
+	
+	}
+	
+	public DigitalProduct(String name, String brand, double price, String category, int id)
+	
+	{
+		
+		super(name, brand, price);
+		
+		try {
+			
+			
+			if(category != null)
+			{
+				this.category = new String(category);
+			}
+			
+			if(id > 0)
+			{
+				this.id = id;
+			}
+			
+			
 			
 		} 
 		

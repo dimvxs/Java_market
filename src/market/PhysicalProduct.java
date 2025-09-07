@@ -21,6 +21,15 @@ public abstract class PhysicalProduct extends Product{
 		this.height = height;
 	}
 	
+	PhysicalProduct(String name, String brand, double price, double weight, double width, double height)
+	
+	{
+		super(name, brand, price);
+		this.weight = weight;
+		this.width = width;
+		this.height = height;
+	}
+	
 	public void setWeight(double weight)
 	{
 		this.weight = weight;

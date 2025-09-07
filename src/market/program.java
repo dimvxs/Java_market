@@ -35,12 +35,20 @@ public class program {
 		
 		
 		Product product = new Product("Sneakers", "Nike", 50); //creating product, for example sneakers
-		product.showProduct(); //showing the product in the console
+		
+		try {
+			product.showProduct(); //showing the product in the console
+		}
+		catch(ProductNotFoundException e)
+		{
+			System.out.println("error: " + e);
+		}
+		
 		
 		Card card = new Card("main", product); //creating a card
 		
 		OnlineStore store = new OnlineStore(); //creating a store
-		User user = new User("Dima", 1, card, 100); //creating user
+		User user = new User("Dima", 1, card, 100, Payment.createPayment("Dima", 100)); //creating user
 		
 		store.addUser(user); //adding the user to our store's system
 		

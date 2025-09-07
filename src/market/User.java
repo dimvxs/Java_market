@@ -8,6 +8,7 @@ public class User {
 	private int id; //user id
 	private double money; //amount of money
 	private ArrayList<Card> cards = new ArrayList<>(); //user's cards
+	public Payment payment;
 
 	
 	
@@ -16,7 +17,7 @@ public class User {
 	{
 		
 		
-	this("null", 0, 0, new ArrayList<>());
+	this("null", 0, 0, new ArrayList<>(), Payment.createPayment("null", 0));
 		
 	}
 	
@@ -25,28 +26,30 @@ public class User {
 	
 	{
 		
-		this(name, 0, 0, new ArrayList<>());
+		this(name, 0, 0, new ArrayList<>(), Payment.createPayment(name, 0));
 		
 	}
 	
 	
-	public User(String n, int id,  double m, ArrayList<Card> c)
+	public User(String n, int id,  double m, ArrayList<Card> c, Payment payment)
 	
 	{
 		this.name = n;
 		this.id = id;
 		this.money = m;
 		this.cards = c;
+		this.payment = payment;
 	
 	}
 	
-public User(String n, int id, Card card, double m)
+public User(String n, int id, Card card, double m, Payment payment)
 	
 	{
 		this.name = n;
 		this.id = id;
 		this.money = m;
 		this.cards.add(card);
+		this.payment = payment;
 
 	}
 	
@@ -92,33 +95,7 @@ public User(String n, int id, Card card, double m)
 	}
 	
 	
-	public void setMoney(double money)
-	
-	{
-		this.money = money;
-	}
-	
-	
-	public void addMoney(double money)
-	
-	{
-		this.money += money;
-	}
-	
-	
-	public void withdraw(double money)
-	
-	{
-		this.money -= money;
-	}
-	
-	public double checkMoney() //returns amount on the account
-	
-	{
-		return this.money;
-	}
-	
-	
+
 	
 
 }

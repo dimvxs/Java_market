@@ -67,9 +67,13 @@ public class Product implements Purchasable{
 	}
 	
 	
-	public void showProduct()
+	public void showProduct () throws ProductNotFoundException
 	
 	{
+		if(name == null || brand == null)
+		{
+			throw new ProductNotFoundException("Can't find the product");
+		}
 		System.out.println("Product name: " + name + "brand: " + brand + "price: " + price);
 	}
 	
@@ -87,12 +91,12 @@ public class Product implements Purchasable{
 		try 
 		
 		{
-			if(name.equals(this.name) && user.checkMoney() >= this.price)
+			if(name.equals(this.name) && user.payment.getMoney() >= this.price)
 				
 			{
 				System.out.println("you bought" + this.name + " for: " + this.price + "$");
 				
-				user.withdraw(this.price);
+				user.payment.withdraw(this.price);
 			}
 			
 			
@@ -114,12 +118,12 @@ public class Product implements Purchasable{
 		try 
 		
 		{
-			if(user.checkMoney() >= this.price)
+			if(user.payment.getMoney() >= this.price)
 				
 			{
 				System.out.println("you have bought" + this.name + " for: " + this.price + "$");
 				
-				user.withdraw(this.price);
+				user.payment.withdraw(this.price);
 			}
 			
 			
@@ -146,7 +150,7 @@ public class Product implements Purchasable{
 			{
 				System.out.println("you have returned" + this.name + ", you will get back" + (this.price / 100 * 90) + "$" );
 				double sumToReturn = this.price / 100 * 90;
-				user.addMoney(sumToReturn);
+				user.payment.addMoney(sumToReturn);
 			}
 		}
 		
