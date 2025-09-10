@@ -1,5 +1,8 @@
 package market;
 
+import com.google.common.collect.ArrayListMultimap;
+import com.google.common.collect.Multimap;
+
 public class program {
 
 	public static void main(String[] args) {
@@ -55,6 +58,9 @@ public class program {
 	
 		
 		store.purchaseAll(user);
+		
+		Multimap<User, Card> userCards = ArrayListMultimap.create();
+		userCards.put(user, card);
 		
 
 	}
