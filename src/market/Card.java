@@ -3,6 +3,10 @@ package market;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import lombok.Data;
+
+
+@Data
 public class Card {
 	
 	public String name;

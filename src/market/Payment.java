@@ -3,6 +3,10 @@ package market;
 import java.time.LocalDate;
 import java.util.Random;
 
+import lombok.Data;
+
+
+@Data
 public class Payment {
 
 	private String cardNumber;

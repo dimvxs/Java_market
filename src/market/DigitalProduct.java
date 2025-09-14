@@ -1,5 +1,8 @@
 package market;
 
+import lombok.Data;
+
+@Data
 public abstract class DigitalProduct extends Product{
 	
 	public String category;

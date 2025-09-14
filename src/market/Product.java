@@ -1,5 +1,7 @@
 package market;
 
+
+
 public class Product implements Purchasable{
 
 	public String name;
