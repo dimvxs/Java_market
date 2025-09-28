@@ -164,5 +164,9 @@ public class Product implements Purchasable{
 		
 	}
 	
+	public String getName()
+	{
+		return this.name;
+	}
 	
 }

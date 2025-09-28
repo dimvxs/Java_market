@@ -1,6 +1,9 @@
 package market;
 
 import com.google.common.collect.ArrayListMultimap;
+import java.util.ArrayList;
+import java.util.Comparator;
+
 import com.google.common.collect.Multimap;
 
 public class program {
@@ -38,9 +41,33 @@ public class program {
 		
 		
 		Product product = new Product("Sneakers", "Nike", 50); //creating product, for example sneakers
+		Product product1 = new Product("T-shirt", "Nike", 70);
+		Product product2 = new Product("Sneakers", "Adidas", 110);
+		Product product3 = new Product("Jacket", "Nike", 90);
+		Product product4 = new Product("Cap", "Nike", 40);
+		ArrayList<Product> products = new ArrayList<>();
+		products.add(product);
+		products.add(product1);
+		products.add(product2);
+		products.add(product3);
+		products.add(product4);
+		
+	
+		products.stream()
+		.filter(p -> p.price > 40 && p.price < 100)
+		.sorted(Comparator.comparing(Product::getName).reversed())
+		.forEach(p -> {
+			try {
+				p.showProduct();
+			} catch (ProductNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		});
 		
 		try {
 			product.showProduct(); //showing the product in the console
+			
 		}
 		catch(ProductNotFoundException e)
 		{
