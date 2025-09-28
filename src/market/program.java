@@ -53,7 +53,8 @@ public class program {
 		products.add(product4);
 		
 	
-		products.stream()
+		//products.stream()
+		products.parallelStream()
 		.filter(p -> p.price > 40 && p.price < 100)
 		.sorted(Comparator.comparing(Product::getName).reversed())
 		.forEach(p -> {
